@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>guessit.html</title>
+</head> 
+
+<body>
+    <h1>Guess the color Julianna Marshall</h1>
+
+    <form>
+        <label for="color">Guess the color</label>
+        <input type ="password" id="Red" name="color" value="Red"> <br>
+
+        <label for="guess">Enter a guess</label>
+        <input type ="text" id="guess" name="guess" autofocus> <br>
+
+        <input type="button" onclick="processColor()" value="Check the color">
+    </form>
+
+    <p id="result">This text will be replaced </p>
+
+    <script>
+        var attempts = 0
+        var wrong = 0
+        function processColor(){
+            console.log("Getting form values")
+            color = document.getElementById("Red").value
+            guess = document.getElementById("guess").value
+            //confirmed = confirm("Are these the values? "+color+" and "+guess)
+            
+            out = document.getElementById("result")
+            if(color == guess){
+                out.innerHTML = alert("You got it")
+                attempts += 1
+                out.innerHTML = "Attemps: "+attempts+ "\nWrong: "+wrong
+            } else {
+                out.innerHTML = alert("That was not it")
+                attempts += 1
+                wrong += 1
+                out.innerHTML = "Attemps: "+attempts+ "\nWrong: "+wrong
+            }
+        }
+    </script>
+
+</body>
+</html> 
