@@ -41,6 +41,33 @@
             }
         }
     </script>
-
+    <div>
+       <img src="apple pie.jpg" height="200" width="200" onclick="nextImage()" id="applepie"> 
+        <script>
+            var showing = 1
+            function nextImage(){
+                switch(showing){
+                    case 1:
+                        document.getElementById("applepie").src = "macaroon.jpg"
+                        showing += 1
+                        break
+                    case 2:
+                        document.getElementById("applepie").src = "red velvet cake.jpg"
+                        showing += 1
+                        break
+                    case 3:
+                        document.getElementById("applepie").src = "macaroon.jpg"
+                        showing += 1
+                        break
+                    case 4:
+                        document.getElementById("applepie").src = "apple pie.jpg"
+                        showing = 1 
+                        break
+                }
+                
+            }
+        </script>
+    </div>
+    
 </body>
 </html> 
