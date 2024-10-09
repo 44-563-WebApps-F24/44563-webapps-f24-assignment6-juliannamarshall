@@ -18,6 +18,19 @@
 
         <input type="button" value="Start a lunch order" onclick="startLunch()">
 
+
+
+
+        <label for="property">Enter property</label>
+        <input id="property" type="text" value="entree">
+
+        <label for="value">Set it to:</label>
+        <input id="value" type="text">
+
+        <input type="button" value="Update the lunch" onclick="updateLunch()">
+
+
+
         <p id="result">This text will be replaced </p>
 
         <script>
@@ -30,22 +43,18 @@
                 my_lunch.side = document.getElementById("side").checked
                 my_lunch.in = document.getElementById("in").checked
 
-                /*
-                if(drink){
-                    my_lunch = document.getElementById("drink").value
-                }
-                else if(side){
-                    my_lunch = document.getElementById("side").value
+                out = document.getElementById("result")
+                out.innerHTML = JSON.stringify(my_lunch)
+            }
 
-                }
-                else if(eatIn){
-                    my_lunch = document.getElementById("in").value
+            function updateLunch(){
+                var property = document.getElementById("property").value
+                var value = document.getElementById("value").value
 
-                }
-                */
+                my_lunch[property] = value 
 
                 out = document.getElementById("result")
-                out.innerHTML = my_lunch
+                out.innerHTML = JSON.stringify(my_lunch)
             }
         </script>
     </form>
