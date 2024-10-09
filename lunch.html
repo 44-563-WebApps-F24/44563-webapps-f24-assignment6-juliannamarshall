@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>lunch.html</title>
+</head> 
+<body>
+    <h2>Julianna Marshall orders a lunch</h2>
+
+    <form>
+        <label for="drink">Drink</label>
+        <input type="checkbox" id="drink" name="drink" value="drink">
+
+        <label for="side">Side</label>
+        <input type="checkbox" id="side" name="side" value="side">
+
+        <label for="in">Eat in</label>
+        <input type="checkbox" id="in" name="in" value="in">
+
+        <input type="button" value="Start a lunch order" onclick="startLunch()">
+
+        <p id="result">This text will be replaced </p>
+
+        <script>
+            var my_lunch = {}
+
+            function startLunch(){
+                my_lunch = {}
+
+                my_lunch.drink = document.getElementById("drink").checked
+                my_lunch.side = document.getElementById("side").checked
+                my_lunch.in = document.getElementById("in").checked
+
+                /*
+                if(drink){
+                    my_lunch = document.getElementById("drink").value
+                }
+                else if(side){
+                    my_lunch = document.getElementById("side").value
+
+                }
+                else if(eatIn){
+                    my_lunch = document.getElementById("in").value
+
+                }
+                */
+
+                out = document.getElementById("result")
+                out.innerHTML = my_lunch
+            }
+        </script>
+    </form>
+</body>
+</html> 
