@@ -10,27 +10,85 @@
     <label for="first">Enter a number</label>
     <input type="number" id="first" value="2">
 
-    <label for="seconf">Enter a number</label>
+    <label for="second">Enter a number</label>
     <input type="number" id="second" value="12">
 
     <input type="button" onclick="powerSum()" value="Compute">
 
-    <p id="result">This text will be replaced </p>
+    <p id="result1">This text will be replaced </p>
 
     <script>
         function powerSum(){
-            first = document.getElementById("first").value
-            second = document.getElementById("second").value
+            first = document.getElementById("first").valueAsNumber
+            second = document.getElementById("second").valueAsNumber
             var sum = 0
 
             for(i = 0; i < first-1; i++){
                 sum += second ** second;
-                //out = document.getElementById("result")
-                //out.innerHTML = "Sum of " + first + " powers with base " + second + " is " + sum
             }
 
-            out = document.getElementById("result")
-            out.innerHTML = "Sum of " + first + " powers with base " + second + " is " + sum
+            out1 = document.getElementById("result1")
+            out1.innerHTML = "Sum of " + first + " powers with base " + second + " is " + sum
+        }
+    </script>
+    <form>
+        <input type="radio" id="rg1_max" name="max" value="max" onclick="processRadio()">
+        <label for="rg1_max">Max</label></br>
+
+        <input type="radio" id="rg1_min" name="min" value="min" onclick="processRadio()">
+        <label for="rg1_min">Min</label></br>
+
+        <input type="radio" id="rg1_avg" name="avg" value="avg" onclick="processRadio()">
+        <label for="rg1_avg">Average</label></br>
+
+        <input type="radio" id="rg1_geo" name="geo" value="geo" onclick="processRadio()">
+        <label for="rg1_geo">Geometric</label></br>
+    </form>
+
+    <p id="result2">This text will be replaced </p>
+    
+    <script>
+        function processRadio(){
+            first = document.getElementById("first").valueAsNumber
+            second = document.getElementById("second").valueAsNumber
+
+            max = document.getElementById("rg1_max").checked
+            min = document.getElementById("rg1_min").checked
+            avg = document.getElementById("rg1_avg").checked
+            geo = document.getElementById("rg1_geo").checked
+           
+            if (max){
+                var maximum = 0
+                if(first > second){
+                    maximum = first
+                }
+                else{
+                    maximum = second
+                }
+                out2 = document.getElementById("result2")
+                out2.innerHTML = "Computed max with values " + first + " and " + second + " with result " + maximum
+            }
+            else if(min){
+                var minimum = 0
+                if(first < second){
+                    minimum = first
+                }
+                else{
+                    minimum = second
+                }
+                out2 = document.getElementById("result2")
+                out2.innerHTML = "Computed min with values " + first + " and " + second + " with result " + minimum
+            }
+            else if(avg){
+                var average = (first + second) / 2
+                out2 = document.getElementById("result2")
+                out2.innerHTML = "Computed avg with values " + first + " and " + second + " with result " + average
+            }
+            else if(geo){
+                var geometric = (first * second) ** 0.5
+                out2 = document.getElementById("result2")
+                out2.innerHTML = "Computed geo with values " + first + " and " + second + " with result " + geometric
+            }
         }
     </script>
 </body>
